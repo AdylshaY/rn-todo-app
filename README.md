@@ -1,50 +1,150 @@
-# Welcome to your Expo app 👋
+# 📱 Todo App React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Modern, responsive ve gerçek zamanlı bir Todo uygulaması. React Native, Expo ve Convex kullanılarak geliştirilmiştir.
 
-## Get started
+## ✨ Özellikler
 
-1. Install dependencies
+- ✅ **Todo Yönetimi**: Görev ekleme, düzenleme, silme ve tamamlama
+- 🌓 **Tema Desteği**: Dark/Light mode arası geçiş
+- 📊 **İlerleme Takibi**: Tamamlanan görevlerin görsel takibi
+- ⚡ **Real-time Sync**: Convex ile gerçek zamanlı veri senkronizasyonu
+- 📱 **Cross-platform**: iOS, Android ve Web desteği
+- 🎨 **Modern UI**: Linear gradients ve smooth animasyonlar
+- 🔧 **Settings**: Kullanıcı tercihleri ve uygulama ayarları
 
-   ```bash
-   npm install
-   ```
+## 🛠 Teknolojiler
 
-2. Start the app
+- **Frontend**: React Native 0.79.5, TypeScript
+- **Framework**: Expo 53.0.20
+- **Navigation**: Expo Router (File-based routing)
+- **Backend**: Convex (Real-time database)
+- **UI**: Linear Gradients, Custom Styling
+- **State Management**: Convex React hooks
 
-   ```bash
-   npx expo start
-   ```
+## 📸 Screenshots
 
-In the output, you'll find options to open the app in a
+### 🌅 Light Mode
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+<div align="center">
+  <img src="./screenshots/home-light.png" width="250" alt="Home Light Mode" />
+  <img src="./screenshots/home-with-todos-light.png" width="250" alt="Home with Todos Light Mode" />
+  <img src="./screenshots/settings-light.png" width="250" alt="Settings Light Mode" />
+</div>
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 🌙 Dark Mode
 
-## Get a fresh project
+<div align="center">
+  <img src="./screenshots/home-dark.png" width="250" alt="Home Dark Mode" />
+  <img src="./screenshots/home-with-todos-dark.png" width="250" alt="Home with Todos Dark Mode" />
+  <img src="./screenshots/settings-dark.png" width="250" alt="Settings Dark Mode" />
+</div>
 
-When you're ready, run:
+## 🚀 Kurulum ve Çalıştırma
+
+### Gereksinimler
+
+- Node.js 18+
+- npm veya yarn
+- Expo CLI
+- Convex hesabı
+
+### 1. Projeyi klonlayın
 
 ```bash
-npm run reset-project
+git clone https://github.com/AdylshaY/rn-todo-app.git
+cd rn-todo-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Bağımlılıkları yükleyin
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Convex kurulumu
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx convex dev
+```
 
-## Join the community
+### 4. Environment variables
 
-Join our community of developers creating universal apps.
+`.env.example` dosyasını `.env` olarak kopyalayın ve Convex bilgilerini ekleyin:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```env
+CONVEX_DEPLOYMENT=your-convex-deployment
+EXPO_PUBLIC_CONVEX_URL=your-convex-url
+```
+
+### 5. Uygulamayı başlatın
+
+```bash
+npx expo start
+```
+
+Uygulamayı şu platformlarda çalıştırabilirsiniz:
+
+- 📱 **iOS Simulator** - `i` tuşuna basın
+- 🤖 **Android Emulator** - `a` tuşuna basın
+- 🌐 **Web Browser** - `w` tuşuna basın
+- 📲 **Expo Go** - QR kod ile cihazınızda
+
+## 📁 Proje Yapısı
+
+```
+├── app/                    # Expo Router sayfaları
+│   ├── (tabs)/            # Tab navigation
+│   │   ├── index.tsx      # Ana todo sayfası
+│   │   └── settings.tsx   # Ayarlar sayfası
+│   └── _layout.tsx        # Root layout
+├── components/            # Yeniden kullanılabilir bileşenler
+│   ├── todo-input.tsx     # Todo ekleme bileşeni
+│   ├── header.tsx         # Başlık ve progress bar
+│   ├── empty-state.tsx    # Boş durum gösterimi
+│   ├── progress-stats.tsx # İstatistik kartları
+│   ├── preferences.tsx    # Kullanıcı tercihleri
+│   └── danger-zone.tsx    # Kritik işlemler
+├── convex/                # Backend fonksiyonları
+│   ├── schema.ts          # Veritabanı şeması
+│   └── todos.ts           # Todo CRUD işlemleri
+├── hooks/                 # Custom hooks
+│   └── useTheme.tsx       # Tema yönetimi
+└── assets/                # Stil dosyaları ve görseller
+    └── styles/            # Component stilleri
+```
+
+## 🔧 Kullanılabilir Komutlar
+
+```bash
+# Geliştirme sunucusunu başlat
+npm start
+
+# Platform-specific başlatma
+npm run ios          # iOS simulator
+npm run android      # Android emulator
+npm run web          # Web browser
+
+# Kod kalitesi
+npm run lint         # ESLint çalıştır
+```
+
+## 🌟 Öne Çıkan Özellikler
+
+### Real-time Synchronization
+
+Convex kullanarak tüm cihazlarda gerçek zamanlı veri senkronizasyonu.
+
+### Modern UI/UX
+
+- Smooth animasyonlar
+- Linear gradient tasarımlar
+- Responsive layout
+- Intuitive user interface
+
+### Cross-platform
+
+Tek kod tabanı ile iOS, Android ve Web desteği.
+
+### Type Safety
+
+TypeScript ile tam tip güvenliği ve otomatik kod tamamlama.
